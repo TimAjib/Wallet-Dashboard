@@ -17,7 +17,6 @@ const Dashboard = () => {
       <Grid item xs={12} xl={4} zIndex={1}>
         <RecentTransactions />
       </Grid>
-
       {/* ------------- Chart section ---------------- */}
       <Grid item xs={12} lg={8} zIndex={1}>
         <WeeklyActivity />

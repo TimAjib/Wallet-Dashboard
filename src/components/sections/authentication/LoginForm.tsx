@@ -1,4 +1,4 @@
-import { Button, Grid, IconButton, InputAdornment, Link, TextField } from '@mui/material';
+import { Button, Grid, IconButton, InputAdornment, Link, TextField, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { useBreakpoints } from 'providers/useBreakpoints';
 import { useState } from 'react';
@@ -6,12 +6,25 @@ import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const { up } = useBreakpoints();
   const upSM = up('sm');
+
   const handleClick = () => {
-    navigate('/');
+    if (email === 'ajiboyetimfemi@gmail.com' && password === 'Ajiboye') {
+      navigate('/');
+    } else {
+      setOpen(true);
+    }
   };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <>
       <Grid container spacing={3} sx={{ mb: 2.5 }}>
@@ -21,6 +34,8 @@ const LoginForm = () => {
             size={upSM ? 'medium' : 'small'}
             name="email"
             label="Email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </Grid>
         <Grid item xs={12}>
@@ -30,6 +45,8 @@ const LoginForm = () => {
             name="password"
             label="Password"
             type={showPassword ? 'text' : 'password'}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
@@ -59,6 +76,17 @@ const LoginForm = () => {
       >
         Login
       </Button>
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Error</DialogTitle>
+        <DialogContent>
+          The email or password you entered is incorrect. Please try again.
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 };

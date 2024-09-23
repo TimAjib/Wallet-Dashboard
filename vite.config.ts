@@ -18,7 +18,7 @@ export default defineConfig({
       },
     }),
   ],
-  base: '/bankdash',
+  base: '/',
   build: {
     outDir: 'dist', // Ensure this is the correct output directory
   },

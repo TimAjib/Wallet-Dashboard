@@ -18,14 +18,14 @@ export default defineConfig({
       },
     }),
   ],
-  base: '/',
   build: {
     outDir: 'dist', // Ensure this is the correct output directory
   },
 
-  //   preview: {
-  //     port: 5000,
-  //   },
+  preview: {
+    port: 5000,
+  },
+
   server: {
     host: '0.0.0.0',
     port: 3000,

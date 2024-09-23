@@ -18,7 +18,7 @@ export default defineConfig({
       },
     }),
   ],
-  base: '/bankdash',
+
   preview: {
     port: 5000,
   },

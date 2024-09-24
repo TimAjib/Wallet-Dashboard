@@ -18,8 +18,6 @@ const cardData: CardData[] = [
       cardHolder: 'Camila Lopez',
       validThru: '12/26',
       cardNumber: '3778 **** **** 2763',
-      account: '9673927372',
-      iban: 'EB1868387629067498762746349'
     },
   },
   {
@@ -30,11 +28,14 @@ const cardData: CardData[] = [
       cardHolder: 'Camila Lopez',
       validThru: '01/27',
       cardNumber: '5647 **** **** 5688',
-      account: '9673927372',
-      iban: 'EB1868387629067498762746349'
     },
   },
 ];
+
+const accountDetails = {
+  accountNumber: '9673927372',
+  iban: 'EB1868387629067498762746349',
+};
 
 const MyCards = () => {
   return (
@@ -65,6 +66,27 @@ const MyCards = () => {
           See All
         </Link>
       </Stack>
+
+      {/* Display Account Number and IBAN */}
+      <Stack
+        direction="column"
+        justifyContent="flex-start"
+        sx={{ mb: 3, p: 2, bgcolor: 'grey.100', borderRadius: 2 }}
+      >
+        <Typography
+          variant="body1"
+          sx={{ fontWeight: 500, fontSize: { xs: 'body1.fontSize', md: 'body1.fontSize' } }}
+        >
+          <strong>Account Number:</strong> {accountDetails.accountNumber}
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{ fontWeight: 500, fontSize: { xs: 'body1.fontSize', md: 'body1.fontSize' } }}
+        >
+          <strong>IBAN:</strong> {accountDetails.iban}
+        </Typography>
+      </Stack>
+
       <SimpleBar style={{ maxWidth: '100%', overflowX: 'auto' }}>
         <Stack direction="row" justifyContent="space-between" gap={4} sx={{ minWidth: 800 }}>
           {cardData.map((card) => (

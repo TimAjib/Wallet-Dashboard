@@ -13,6 +13,8 @@ import ProfileImage from 'assets/avatar.jpg';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { MouseEvent, useState } from 'react';
 import { Fragment } from 'react/jsx-runtime';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import paths from './../../../routes/path'; // Adjust the import path as necessary
 
 /* ------------------------Profile dropdown Data --------------------------- */
 const profileData = [
@@ -27,6 +29,7 @@ const profileData = [
 /* -------------------------------------------------------------------------- */
 const ProfileDropdown = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleOpenDropdown = (event: MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -34,6 +37,12 @@ const ProfileDropdown = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleLoginClick = () => {
+    navigate(paths.login); // Navigate to the login page
+    handleClose(); // Close the dropdown after clicking
+  };
+
   return (
     <Fragment>
       <IconButton sx={{ p: 0, position: 'relative' }} onClick={handleOpenDropdown}>
@@ -78,10 +87,10 @@ const ProfileDropdown = () => {
             <Avatar src={ProfileImage} alt="Profile Image" sx={{ width: 65, height: 65 }} />
             <Box>
               <Typography variant="subtitle2" color="text.primary" fontWeight={600}>
-                Charlene Reed
+                Camila Lopez
               </Typography>
               <Typography variant="caption" color="textSecondary">
-                Designer
+                My Account
               </Typography>
               <Typography
                 variant="subtitle2"
@@ -114,7 +123,7 @@ const ProfileDropdown = () => {
                     <Avatar
                       variant="rounded"
                       sx={{
-                        minwidth: 24,
+                        minWidth: 24,
                         height: 24,
                         bgcolor: 'transparent',
                       }}
@@ -148,7 +157,7 @@ const ProfileDropdown = () => {
             </Box>
           ))}
           <Box mt={1.25}>
-            <Button onClick={handleClose} variant="outlined" color="error" fullWidth>
+            <Button onClick={handleLoginClick} variant="outlined" color="error" fullWidth>
               Logout
             </Button>
           </Box>

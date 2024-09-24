@@ -3,12 +3,7 @@ import { SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import Image1 from 'assets/profile/image-1.png';
-import Image2 from 'assets/profile/image-2.png';
-import Image3 from 'assets/profile/image-3.png';
-import Image4 from 'assets/profile/image-4.png';
-import Image5 from 'assets/profile/image-5.png';
-import Image6 from 'assets/profile/image-6.png';
-import Image7 from 'assets/profile/image-7.png';
+
 
 // import Swiper styles
 import 'swiper/css';
@@ -23,13 +18,8 @@ import { useState } from 'react';
 
 /* ------------------------- Carousel Data ---------------------------- */
 const ItemData = [
-  { id: 1, image: Image3, name: 'Livia Bator', designation: 'CEO' },
-  { id: 2, image: Image2, name: 'Randy Press', designation: 'Director' },
-  { id: 3, image: Image1, name: 'Workman', designation: 'Designer' },
-  { id: 4, image: Image4, name: 'Kevin Reed', designation: 'UX' },
-  { id: 5, image: Image5, name: 'Sofia Gill', designation: 'Director' },
-  { id: 6, image: Image6, name: 'Jo Barnes', designation: 'Analyst' },
-  { id: 7, image: Image7, name: 'Felix Vidal', designation: 'CTO' },
+  { id: 1, image: Image1, name: 'Juan Lopez', designation: '' },
+
 ];
 /* -------------------------------------------------------------------------- */
 const cardSize = { lg: 70, md: 50, sm: 50 }; // Adjust card size as needed

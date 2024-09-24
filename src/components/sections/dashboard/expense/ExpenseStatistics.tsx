@@ -24,4 +24,4 @@ const ExpenseStatistics = () => {
   );
 };
 
-export default ExpenseStatistics;
+export default ExpenseStatistics; 

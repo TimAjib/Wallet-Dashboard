@@ -15,9 +15,9 @@ const cardData: CardData[] = [
     theme: 'blue',
     data: {
       balance: '1790000',
-      cardHolder: 'Eddy Cusuma',
-      validThru: '12/22',
-      cardNumber: '3778 **** **** 1234',
+      cardHolder: 'Camila Lopez',
+      validThru: '12/26',
+      cardNumber: '3778 **** **** 2763',
     },
   },
   {
@@ -25,9 +25,9 @@ const cardData: CardData[] = [
     theme: 'white',
     data: {
       balance: '0',
-      cardHolder: 'Jane Doe',
-      validThru: '01/24',
-      cardNumber: '1234 **** **** 5678',
+      cardHolder: 'Camila Lopez',
+      validThru: '01/27',
+      cardNumber: '5647 **** **** 5688',
     },
   },
 ];

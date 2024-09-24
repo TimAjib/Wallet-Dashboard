@@ -86,7 +86,7 @@ const a11yProps = (index: number) => ({
   'aria-controls': `transaction-tabpanel-${index}`,
 });
 
-let rowHeight = 60; // default row height
+let rowHeight = 60;
 
 const InvoiceOverviewTable: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -119,13 +119,13 @@ const InvoiceOverviewTable: React.FC = () => {
   const filterData = (tabIndex: number) => {
     switch (tabIndex) {
       case 1:
-        setItems(invoiceRowData.filter((row) => row.description.revenue === 'up'));
+        setItems(invoiceRowData.filter((row) => row.description.revenue === 'up')); // Income tab
         break;
       case 2:
-        setItems(invoiceRowData.filter((row) => row.description.revenue === 'down'));
+        setItems([]); // Expense tab, no transactions
         break;
       default:
-        setItems(invoiceRowData);
+        setItems(invoiceRowData); // All Transactions tab
         break;
     }
   };
@@ -171,7 +171,7 @@ const InvoiceOverviewTable: React.FC = () => {
             border: 1,
             borderColor: 'neutral.light',
             bgcolor: { xs: 'transparent', sm: 'white' },
-            boxShadow: (theme) => `inset 0px -1px ${theme.palette.neutral.light}`, // color for row border
+            boxShadow: (theme) => `inset 0px -1px ${theme.palette.neutral.light}`,
           },
         }}
       >
@@ -189,7 +189,7 @@ const InvoiceOverviewTable: React.FC = () => {
           onPaginationModelChange={handlePaginationModelChange}
           slots={{
             noRowsOverlay: () => <NoData />,
-            pagination: () => null, // Hide the default pagination component
+            pagination: () => null,
           }}
           loading={loading}
           sx={{

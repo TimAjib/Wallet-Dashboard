@@ -50,7 +50,7 @@ const WeeklyActivityChart = ({ chartRef, ...rest }: WeeklyActivityChartProps) =>
 
 
     return {
-      title: { show: true, text: 'Financial Report (2019-2024)' },
+      title: { show: true, text: '' },
       xAxis: {
         axisLabel: {
           padding: 10,

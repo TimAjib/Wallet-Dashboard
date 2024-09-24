@@ -54,7 +54,34 @@ const MainNavbar = ({ onDrawerToggle }: NavbarProps) => {
 
   return (
     <>
-      <AppBar position="sticky" sx={{ bgcolor: 'common.white' }}>
+      {/* Fixed auto-logout countdown at the top center */}
+      <Box
+        sx={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          display: 'flex',
+          justifyContent: 'center',
+          bgcolor: 'background.default',
+          padding: 1,
+          zIndex: 1300, // Above AppBar
+          boxShadow: 1,
+        }}
+      >
+        <Typography
+          sx={{
+            fontSize: 'h7.fontSize',
+            color: 'error.main',
+            textAlign: 'center',
+            fontWeight: 600,
+          }}
+        >
+          Auto logout in: {formatTime(countdown)}
+        </Typography>
+      </Box>
+
+      <AppBar position="sticky" sx={{ bgcolor: 'common.white', mt: 4 }}> {/* Added margin top */}
         <Toolbar
           sx={{
             justifyContent: 'space-between',
@@ -76,7 +103,7 @@ const MainNavbar = ({ onDrawerToggle }: NavbarProps) => {
             {routeName}
           </Typography>
 
-          {/* Status and Auto-Logout Countdown */}
+          {/* Status */}
           <Stack direction="row" alignItems="center" gap={2}>
             <Typography
               sx={{
@@ -87,16 +114,6 @@ const MainNavbar = ({ onDrawerToggle }: NavbarProps) => {
               }}
             >
               Status: Dormant
-            </Typography>
-
-            <Typography
-              sx={{
-                fontSize: 'h7.fontSize',
-                color: 'error.main',
-                textAlign: 'center',
-              }}
-            >
-              Auto logout in: {formatTime(countdown)}
             </Typography>
           </Stack>
 
@@ -113,7 +130,7 @@ const MainNavbar = ({ onDrawerToggle }: NavbarProps) => {
             <ProfileDropdown />
           </Stack>
         </Toolbar>
-        <Box sx={{ display: { xs: 'block', md: 'none' }, px: 3.15, mt: 5.5 }}>
+        <Box sx={{ display: { xs: 'block', md: 'none' }, px: 3.15 }}>
           <SearchInput fullWidth={true} size={'small'} />
         </Box>
       </AppBar>

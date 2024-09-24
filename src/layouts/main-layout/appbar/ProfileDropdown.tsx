@@ -1,4 +1,4 @@
-import {
+import { 
   Avatar,
   Box,
   Button,
@@ -9,10 +9,8 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import ProfileImage from 'assets/avatar.jpg';
 import IconifyIcon from 'components/base/IconifyIcon';
-import { MouseEvent, useState } from 'react';
-import { Fragment } from 'react/jsx-runtime';
+import { MouseEvent, useState, Fragment } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import paths from './../../../routes/path'; // Adjust the import path as necessary
 
@@ -47,21 +45,16 @@ const ProfileDropdown = () => {
     <Fragment>
       <IconButton sx={{ p: 0, position: 'relative' }} onClick={handleOpenDropdown}>
         <Avatar
-          alt="Avatar"
-          src={ProfileImage}
-          slotProps={{
-            img: {
-              sx: {
-                objectFit: 'cover',
-                position: 'absolute',
-                top: '75%',
-                left: '30%',
-                transform: 'translate(-50%, -50%) scale(1.5)',
-              },
-            },
+          alt="Profile Avatar"
+          sx={{
+            bgcolor: 'primary.main', // Background color for the avatar
+            color: 'common.white', // Text color for the initials
+            width: { xs: 40, md: 45, xl: 60 },
+            height: { xs: 40, md: 45, xl: 60 },
           }}
-          sx={{ width: { xs: 40, md: 45, xl: 60 }, height: { xs: 40, md: 45, xl: 60 } }}
-        />
+        >
+          C.L.
+        </Avatar>
       </IconButton>
       {/* Profile Menu Dropdown*/}
       <Menu
@@ -84,7 +77,11 @@ const ProfileDropdown = () => {
             User Profile
           </Typography>
           <Stack direction="row" py={2.5} spacing={1.5} alignItems="center">
-            <Avatar src={ProfileImage} alt="Profile Image" sx={{ width: 65, height: 65 }} />
+            <Avatar
+              sx={{ bgcolor: 'primary.main', color: 'common.white', width: 65, height: 65 }}
+            >
+              C.L.
+            </Avatar>
             <Box>
               <Typography variant="subtitle2" color="text.primary" fontWeight={600}>
                 Camila Lopez

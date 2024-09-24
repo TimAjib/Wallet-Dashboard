@@ -57,7 +57,7 @@ const CreditCard = ({ theme = 'white', cardData }: CreditCardProps) => {
   const { cardBg, textColor, cardGradient, borderStyle, bankLogo, chipCard, labelColor } =
     getThemeStyles(theme, palette);
 
-  const { balance, cardHolder, validThru, cardNumber } = cardData;
+  const { balance, cardHolder, validThru, cardNumber, account, iban } = cardData;
 
   return (
     <Card
@@ -126,6 +126,24 @@ const CreditCard = ({ theme = 'white', cardData }: CreditCardProps) => {
                 fontWeight={600}
               >
                 {validThru}
+              </Typography>
+            </Stack>
+            <Stack sx={{ gap: 0.5 }}>
+              <Typography
+                sx={{
+                  color: labelColor,
+                  fontSize: { xs: 'overline.fontSize', md: 'caption.fontSize', mt },
+                }}
+              >
+                Account Number
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: { xs: 'subtitle1.fontSize', md: 'body1.fontSize' },
+                }}
+                fontWeight={600}
+              >
+                {account}
               </Typography>
             </Stack>
           </Grid>

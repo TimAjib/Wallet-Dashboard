@@ -18,6 +18,8 @@ const cardData: CardData[] = [
       cardHolder: 'Camila Lopez',
       validThru: '12/26',
       cardNumber: '3778 **** **** 2763',
+      account: '9673927372',
+      iban: 'EB1868387629067498762746349'
     },
   },
   {
@@ -28,6 +30,8 @@ const cardData: CardData[] = [
       cardHolder: 'Camila Lopez',
       validThru: '01/27',
       cardNumber: '5647 **** **** 5688',
+      account: '9673927372',
+      iban: 'EB1868387629067498762746349'
     },
   },
 ];

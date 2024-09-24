@@ -99,8 +99,7 @@ const ProfileDropdown = () => {
                 alignItems="center"
                 gap={0.5}
               >
-                <IconifyIcon icon="majesticons:mail-line" />
-                info@dashbank.com
+                camilopez3129@gmail.com
               </Typography>
             </Box>
           </Stack>

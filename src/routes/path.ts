@@ -6,7 +6,7 @@ export const rootPaths = {
 };
 
 /**
- * Object containing various paths used in the application.
+ * Object  containing various paths used in the application.
  */
 const paths = {
   default: `${rootPaths.root}`,

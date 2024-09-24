@@ -1,10 +1,21 @@
-import { Button, InputAdornment, Stack, TextField, Typography } from '@mui/material';
+import { Button, InputAdornment, Stack, TextField, Typography } from '@mui/material'; 
 import IconifyIcon from 'components/base/IconifyIcon';
 import { useBreakpoints } from 'providers/useBreakpoints';
 
-const SendAmountInput = () => {
+interface SendAmountInputProps {
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const SendAmountInput: React.FC<SendAmountInputProps> = ({ value, onChange, setOpenModal }) => {
   const { up } = useBreakpoints();
   const upMd = up('md');
+
+  const handleButtonClick = () => {
+    setOpenModal(true); // Trigger modal when the button is clicked
+  };
+
   return (
     <Stack
       direction="row"
@@ -27,19 +38,21 @@ const SendAmountInput = () => {
       <TextField
         type="number"
         placeholder="525.50"
+        value={value}
+        onChange={onChange}
         InputProps={{
           endAdornment: (
-            <InputAdornment position="start">
+            <InputAdornment position="end">
               <Button
                 variant="contained"
                 color="primary"
-                type="submit"
                 size={upMd ? 'large' : 'medium'}
                 sx={{
                   borderRadius: 'inherit',
                   minWidth: { xs: 80, sm: 120 },
                 }}
                 endIcon={<IconifyIcon icon="ph:telegram-logo" color="common.white" />}
+                onClick={handleButtonClick}
               >
                 Send
               </Button>
@@ -53,10 +66,6 @@ const SendAmountInput = () => {
             paddingRight: 0,
             borderRadius: 40,
           },
-          '& .MuiInputAdornment-root': {
-            borderRadius: 40,
-          },
-
           '&::placeholder': {
             color: 'text.secondary',
             ml: 5,

@@ -14,7 +14,7 @@ const cardData: CardData[] = [
     id: 1,
     theme: 'blue',
     data: {
-      balance: '1790000',
+      balance: '2379007',
       cardHolder: 'Camila Lopez',
       validThru: '12/26',
       cardNumber: '3778 **** **** 2763',

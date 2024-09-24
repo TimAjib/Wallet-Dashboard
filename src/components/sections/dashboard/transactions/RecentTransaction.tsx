@@ -31,10 +31,10 @@ const transactions = [
     id: 3,
     icon: CoinIcon,
     bgcolor: 'success.lighter',
-    title: 'Fathers Name',
+    title: 'Juan Lopez',
     type: 'credit',
     date: '25 January 2019',
-    amount: 1790000,
+    amount: 2379007,
     amountColor: 'success.main',
   },
 ];

@@ -20,6 +20,6 @@ export const invoiceRowData: GridRowsProp<RowData> = [
     type: 'Deposit',
     card: 'Visa **** 3987',
     date: '2019-01-25T10:34:00Z',
-    amount: 1790000, // Amount for the deposit
+    amount: 2379007, // Amount for the deposit
   },
 ];

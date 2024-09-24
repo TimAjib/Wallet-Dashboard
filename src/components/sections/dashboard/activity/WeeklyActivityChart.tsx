@@ -34,7 +34,6 @@ interface WeeklyActivityChartProps {
   seriesData: TransactionDataType[];
 }
 
-
 const WeeklyActivityChart = ({ chartRef, ...rest }: WeeklyActivityChartProps) => {
   const { seriesData } = rest;
   const theme = useTheme();
@@ -46,12 +45,9 @@ const WeeklyActivityChart = ({ chartRef, ...rest }: WeeklyActivityChartProps) =>
 
   const chartOptions: ECOption = useMemo(() => {
     const xAxisData = seriesData.map((item) => item.day);
-    const depositData = seriesData.map((item) =>
-      item.deposit === 0.01 ? 100000 : item.deposit
-    );
-    const withdrawData = seriesData.map((item) =>
-      item.withdraw === 0.01 ? 100000 : item.withdraw
-    );
+    const depositData = seriesData.map((item) => (item.deposit === 0.01 ? 100000 : item.deposit));
+    const withdrawData = seriesData.map((item) => (item.withdraw === 0.01 ? 100000 : item.withdraw));
+
 
     return {
       title: { show: true, text: 'Financial Report (2019-2024)' },
@@ -87,10 +83,10 @@ const WeeklyActivityChart = ({ chartRef, ...rest }: WeeklyActivityChartProps) =>
       },
       tooltip: {
         trigger: 'item',
-        formatter: (params: any) => {
-          // If the actual value is 0.01, display $0 in the tooltip
-          const displayValue = params.value === 100000 ? 0 : params.value;
-          return `${params.name}: $${displayValue}`;
+        formatter: (params: unknown) => {
+          const { name, value } = params as { name: string; value: number };
+          const displayValue = value === 100000 ? 0 : value;
+          return `${name}: $${displayValue}`;
         },
         backgroundColor: theme.palette.neutral.dark,
         textStyle: { color: theme.palette.secondary.contrastText },
@@ -145,8 +141,6 @@ const WeeklyActivityChart = ({ chartRef, ...rest }: WeeklyActivityChartProps) =>
       ],
     };
   }, [theme, seriesData, barWidth]);
-
-
   return (
     <ReactEchart
       echarts={echarts}

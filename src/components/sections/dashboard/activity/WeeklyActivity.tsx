@@ -2,7 +2,6 @@ import CardContainer from 'components/common/CardContainter';
 import WeeklyActivityChart from 'components/sections/dashboard/activity/WeeklyActivityChart';
 import { TransactionDataType, transactionData } from 'data/activity-chart';
 import ReactECharts from 'echarts-for-react';
-import { useChartResize } from 'providers/useEchartResize';
 import { useEffect, useRef, useState } from 'react';
 
 const WeeklyActivity = () => {

@@ -117,16 +117,17 @@ const MainNavbar = ({ onDrawerToggle }: NavbarProps) => {
             </Typography>
           </Stack>
 
-          <Stack direction="row" gap={1} sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <IconButton onClick={onDrawerToggle} sx={{ display: { md: 'none' } }}>
-              <IconifyIcon icon="mingcute:menu-line" color="primary.darker" width={25} />
-            </IconButton>
-          </Stack>
 
           <Stack direction="row" sx={{ alignItems: 'center', gap: { xs: 2.5, xl: 3.75 } }}>
             <Box sx={{ display: { xs: 'none', md: 'block', maxWidth: 260, alignItems: 'right' } }}>
               <SearchInput fullWidth={false} size={'medium'} />
             </Box>
+
+            <Stack direction="row" gap={1} sx={{ display: { xs: 'flex', md: 'none' } }}>
+              <IconButton onClick={onDrawerToggle} sx={{ display: { md: 'none' } }}>
+                <IconifyIcon icon="mingcute:menu-line" color="primary.darker" width={25} />
+              </IconButton>
+            </Stack>
             <ProfileDropdown />
           </Stack>
         </Toolbar>

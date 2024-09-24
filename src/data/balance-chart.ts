@@ -1,16 +1,17 @@
-export type BalanceDataType = { month: string; value: number }[];
+export type BalanceDataType = { year: string; value: number }[];
 
 export const balanceData: BalanceDataType = [
-  { month: 'Jul', value: 90 },
-  { month: 'Aug', value: 200 },
-  { month: 'Sep', value: 120 },
-  { month: 'Oct', value: 225 },
-  { month: 'Nov', value: 480 },
-  { month: 'Dec', value: 310 },
-  { month: 'Jan', value: 220 },
-  { month: 'Feb', value: 332 },
-  { month: 'Mar', value: 144 },
-  { month: 'Apr', value: 220 },
-  { month: 'May', value: 110 },
-  { month: 'Jun', value: 490 },
+  { year: '2012', value: 0 },
+  { year: '2013', value: 0 },
+  { year: '2014', value: 0 },
+  { year: '2015', value: 0 },
+  { year: '2016', value: 0 },
+  { year: '2017', value: 0 },
+  { year: '2018', value: 0 },
+  { year: '2019', value: 1790000 },
+  { year: '2020', value: 1790000 },
+  { year: '2021', value: 1790000 },
+  { year: '2022', value: 1790000 },
+  { year: '2023', value: 1790000 },
+  { year: '2024', value: 1790000 },
 ];

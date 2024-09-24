@@ -14,7 +14,7 @@ const cardData: CardData[] = [
     id: 1,
     theme: 'blue',
     data: {
-      balance: '5756',
+      balance: '1790000',
       cardHolder: 'Eddy Cusuma',
       validThru: '12/22',
       cardNumber: '3778 **** **** 1234',
@@ -24,7 +24,7 @@ const cardData: CardData[] = [
     id: 2,
     theme: 'white',
     data: {
-      balance: '3200',
+      balance: '0',
       cardHolder: 'Jane Doe',
       validThru: '01/24',
       cardNumber: '1234 **** **** 5678',

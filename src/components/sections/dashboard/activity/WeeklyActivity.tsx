@@ -7,19 +7,17 @@ import { useEffect, useRef, useState } from 'react';
 
 const WeeklyActivity = () => {
   const chartRef = useRef<ReactECharts>(null);
-  const [chartData, setChartData] = useState<TransactionDataType>([]);
-  useChartResize(chartRef);
-  // Fetch sales data
+  const [chartData, setChartData] = useState<TransactionDataType[]>([]);
+
   useEffect(() => {
     const fetchData = () => {
       setChartData(transactionData);
     };
-
     fetchData();
   }, []);
 
   return (
-    <CardContainer title="Weekly Activity">
+    <CardContainer title="Financial Report">
       <WeeklyActivityChart chartRef={chartRef} seriesData={chartData} />
     </CardContainer>
   );

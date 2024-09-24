@@ -1,11 +1,16 @@
-export type TransactionDataType = { day: string; deposit: number; withdraw: number }[];
+// data/activity-chart.ts
 
-export const transactionData: TransactionDataType = [
-  { day: 'Sat', deposit: 420, withdraw: 220 },
-  { day: 'Sun', deposit: 332, withdraw: 132 },
-  { day: 'Mon', deposit: 301, withdraw: 251 },
-  { day: 'Tue', deposit: 334, withdraw: 334 },
-  { day: 'Wed', deposit: 490, withdraw: 390 },
-  { day: 'Thu', deposit: 160, withdraw: 230 },
-  { day: 'Fri', deposit: 320, withdraw: 320 },
+export interface TransactionDataType {
+  day: string;
+  deposit: number;
+  withdraw: number;
+}
+
+export const transactionData: TransactionDataType[] = [
+  { day: '2019', deposit: 1790000, withdraw: 100000 },
+  { day: '2020', deposit: 100000, withdraw: 100000 },
+  { day: '2021', deposit: 100000, withdraw: 100000 },
+  { day: '2022', deposit: 100000, withdraw: 100000 },
+  { day: '2023', deposit: 100000, withdraw: 100000 },
+  { day: '2024', deposit: 100000, withdraw: 100000 },
 ];

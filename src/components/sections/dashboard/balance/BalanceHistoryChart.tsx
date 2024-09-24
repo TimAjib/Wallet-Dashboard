@@ -15,12 +15,10 @@ import 'echarts/lib/component/tooltip';
 import { CanvasRenderer } from 'echarts/renderers';
 import React, { useMemo } from 'react';
 
-// Use ComposeOption to compose an Option type that only has required components and charts
 export type ECOption = echarts.ComposeOption<
   LineSeriesOption | TooltipComponentOption | GridComponentOption
 >;
 
-// Register required components
 echarts.use([LineChart, LegendComponent, CanvasRenderer, GridComponent]);
 
 interface BalanceHistoryChartProps {
@@ -28,13 +26,14 @@ interface BalanceHistoryChartProps {
   sx?: SxProps;
   seriesData: BalanceDataType;
 }
+
 const BalanceHistoryChart = ({ chartRef, ...rest }: BalanceHistoryChartProps) => {
   const theme = useTheme();
   const { palette } = theme;
   const { seriesData } = rest;
 
   const chartOptions: ECOption = useMemo(() => {
-    const xAxisData = seriesData.map((item) => item.month);
+    const xAxisData = seriesData.map((item) => item.year);
     const balanceData = seriesData.map((item) => item.value);
     return {
       grid: {
@@ -82,7 +81,6 @@ const BalanceHistoryChart = ({ chartRef, ...rest }: BalanceHistoryChartProps) =>
           },
         },
       },
-
       tooltip: {
         trigger: 'axis',
         formatter: '{b}: ${c}',
@@ -104,7 +102,6 @@ const BalanceHistoryChart = ({ chartRef, ...rest }: BalanceHistoryChartProps) =>
                 offset: 0,
                 color: alpha(palette.primary.main, 0.25),
               },
-
               {
                 offset: 1,
                 color: palette.common.white,

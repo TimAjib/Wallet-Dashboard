@@ -1,0 +1,13 @@
+{
+    "rewrites": [
+      {
+        "source": "/authentication/login",
+        "destination": "/authentication/login"
+      },
+      {
+        "source": "/(.*)",
+        "destination": "/index.html"
+      }
+    ]
+  }
+  

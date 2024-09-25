@@ -6,7 +6,7 @@ export const rootPaths = {
 };
 
 /**
- * Object  containing various paths used in the application.
+ * Object containing various paths used in the application.
  */
 const paths = {
   default: `${rootPaths.root}`,
@@ -15,11 +15,11 @@ const paths = {
   investments: `${rootPaths.pagesRoot}investments`,
   loans: `${rootPaths.pagesRoot}loans`,
   accounts: `${rootPaths.pagesRoot}accounts`,
-  login: `${rootPaths.authRoot}/login`,
+  login: `${rootPaths.authRoot}/login`, // Matches /authentication/login
   signup: `${rootPaths.authRoot}/sign-up`,
   forgetPassword: `${rootPaths.authRoot}/forget-password`,
   resetPassword: `${rootPaths.authRoot}/reset-password`,
-  notFound: `${rootPaths.errorRoot}/404`,
+  notFound: `${rootPaths.errorRoot}/404`, // Matches /error/404
 };
 
 export default paths;

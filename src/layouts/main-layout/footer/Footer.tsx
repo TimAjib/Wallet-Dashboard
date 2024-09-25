@@ -31,7 +31,7 @@ const Footer = () => {
                     fontWeight="regular"
                     sx={{ fontSize: { xs: 'caption.fontSize', md: 'body2.fontSize' } }}
                   >
-                    &copy; {new Date().getFullYear()}, Ameen Banks Inc.
+                    &copy; {new Date().getFullYear()}, Seker Bank Inc.
                   </Typography>
 
                 </Stack>

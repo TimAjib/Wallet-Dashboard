@@ -1,8 +1,8 @@
 {
-    "name": "BankDash",
-    "short_name": "BankDash",
-    "description": "BankDash - Your personal banking dashboard.",
-    "start_url": "/bankdash/index.html",
+    "name": "SekerBank",
+    "short_name": "SekerBank",
+    "description": "SekerBank - Your personal banking dashboard.",
+    "start_url": "/sekerbank/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",

@@ -1,102 +1,45 @@
-import {
-  Button,
-  Grid,
-  IconButton,
-  InputAdornment,
-  Link,
-  TextField,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-} from '@mui/material';
-
-import IconifyIcon from 'components/base/IconifyIcon';
-import { useBreakpoints } from 'providers/useBreakpoints';
+import { Button, Grid, TextField, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { setAuthToken } from 'helpers/auth';
 
 const LoginForm = () => {
-  const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false); // To handle modal for invalid credentials
   const navigate = useNavigate();
-  const { up } = useBreakpoints();
-  const upSM = up('sm');
 
-  const handleClick = () => {
+  const handleLogin = () => {
     if (email === 'ajiboyetimfemi@gmail.com' && password === 'Ajiboye') {
-      navigate('/');
+      setAuthToken('sample_token'); // Set token on successful login
+      navigate('/'); // Navigate to dashboard
     } else {
-      setOpen(true);
+      setOpen(true); // Open modal if credentials are incorrect
     }
-  };
-
-  const handleClose = () => {
-    setOpen(false);
   };
 
   return (
     <>
-      <Grid container spacing={3} sx={{ mb: 2.5 }}>
+      <Grid container spacing={3}>
         <Grid item xs={12}>
-          <TextField
-            fullWidth
-            size={upSM ? 'medium' : 'small'}
-            name="email"
-            label="Email address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <TextField fullWidth label="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
         </Grid>
         <Grid item xs={12}>
-          <TextField
-            fullWidth
-            size={upSM ? 'medium' : 'small'}
-            name="password"
-            label="Password"
-            type={showPassword ? 'text' : 'password'}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
-                    <IconifyIcon icon={showPassword ? 'majesticons:eye' : 'majesticons:eye-off'} />
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-          />
+          <TextField fullWidth label="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </Grid>
       </Grid>
-      <Grid container justifyContent="flex-end" sx={{ my: 3 }}>
-        <Grid item>
-          <Link href="/authentication/forget-password" variant="subtitle2" underline="hover">
-            Forgot password?
-          </Link>
-        </Grid>
-      </Grid>
-      <Button
-        fullWidth
-        size={upSM ? 'large' : 'medium'}
-        type="submit"
-        variant="contained"
-        color="primary"
-        onClick={handleClick}
-      >
+      <Button onClick={handleLogin} fullWidth variant="contained" color="primary">
         Login
       </Button>
-      <Dialog open={open} onClose={handleClose}>
+
+      {/* Error dialog for incorrect credentials */}
+      <Dialog open={open} onClose={() => setOpen(false)}>
         <DialogTitle>Error</DialogTitle>
         <DialogContent>
-          The email or password you entered is incorrect. Please try again.
+          Incorrect email or password. Please try again.
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Close
-          </Button>
+          <Button onClick={() => setOpen(false)} color="primary">Close</Button>
         </DialogActions>
       </Dialog>
     </>

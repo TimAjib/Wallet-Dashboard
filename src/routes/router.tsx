@@ -1,27 +1,24 @@
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom';
 import paths, { rootPaths } from './path';
+import { getAuthToken } from 'helpers/auth'; // Helper to check authentication
+import Spinner from 'components/loading/Splash'; // Import a loading spinner
 
-/* ---------------- Lazy loads various components ------------------------- */
+// Lazy loaded components
 const App = lazy(() => import('App'));
 const MainLayout = lazy(() => import('layouts/main-layout'));
 const AuthLayout = lazy(() => import('layouts/auth-layout'));
 const Dashboard = lazy(() => import('pages/dashboard'));
-const Spinner = lazy(() => import('components/loading/Splash'));
-const LoadingProgress = lazy(() => import('components/loading/LoadingProgress'));
-
 const LoginPage = lazy(() => import('pages/authentication/login'));
-const SignUpPage = lazy(() => import('pages/authentication/signup'));
-const ForgetPasswordPage = lazy(() => import('pages/authentication/forget-password'));
-const ResetPasswordPage = lazy(() => import('pages/authentication/reset-password'));
-
 const NotFoundPage = lazy(() => import('pages/not-found'));
-/* -------------------------------------------------------------------------- */
 
-/**
- * @Defines the routes for the application using React Router.
- */
-export const routes = [
+// Route protection based on authentication
+const ProtectedRoute = ({ element }: { element: JSX.Element }) => {
+  const token = getAuthToken(); // Check if token exists
+  return token ? element : <Navigate to={paths.login} replace />;
+};
+
+const routes = [
   {
     element: (
       <Suspense fallback={<Spinner />}>
@@ -32,53 +29,32 @@ export const routes = [
       {
         path: paths.default,
         element: (
-          <MainLayout>
-            <Suspense fallback={<LoadingProgress />}>
-              <Outlet />
-            </Suspense>
-          </MainLayout>
+          <ProtectedRoute element={
+            <MainLayout>
+              <Suspense fallback={<Spinner />}>
+                <Outlet />
+              </Suspense>
+            </MainLayout>
+          } />
         ),
         children: [
-          {
-            index: true,
-            element: <Dashboard />,
-          },
-          {
-            path: paths.transactions,
-            element: <Dashboard />,
-          },
+          { index: true, element: <Dashboard /> },
         ],
       },
       {
         path: rootPaths.authRoot,
-        element: <AuthLayout />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <AuthLayout />
+          </Suspense>
+        ),
         children: [
-          {
-            path: paths.login,
-            element: <LoginPage />,
-          },
-          {
-            path: paths.signup,
-            element: <SignUpPage />,
-          },
-          {
-            path: paths.forgetPassword,
-            element: <ForgetPasswordPage />,
-          },
-          {
-            path: paths.resetPassword,
-            element: <ResetPasswordPage />,
-          },
+          { path: paths.login, element: <LoginPage /> },
         ],
       },
       {
-        path: rootPaths.errorRoot,
-        children: [
-          {
-            path: paths.notFound,
-            element: <NotFoundPage />,
-          },
-        ],
+        path: paths.notFound,
+        element: <NotFoundPage />,
       },
       {
         path: '*',
@@ -89,5 +65,4 @@ export const routes = [
 ];
 
 const router = createBrowserRouter(routes);
-
 export default router;

@@ -1,6 +1,7 @@
 import { Box, Button, Container, Link, Typography } from '@mui/material';
 import NotFoundSVG from 'assets/not-found.svg';
 import Image from 'components/base/Image';
+
 const NotFoundPage = () => {
   return (
     <Container>
@@ -38,13 +39,13 @@ const NotFoundPage = () => {
         />
 
         <Button
-          href="/"
+          component={Link}
+          href="/authentication/login" // Update to link to the login page
           size="large"
           variant="contained"
-          component={Link}
           sx={{ '&:hover': { color: 'common.white' } }}
         >
-          Go Home
+          Go to Login
         </Button>
       </Box>
     </Container>

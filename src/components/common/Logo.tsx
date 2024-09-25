@@ -1,6 +1,7 @@
 import { Typography, Box } from '@mui/material';
 import Image from 'components/base/Image';
 import { Fragment } from 'react/jsx-runtime';
+import logo from './../../../public/ameenLogo.png';
 
 const Logo = () => {
   return (
@@ -11,10 +12,10 @@ const Logo = () => {
           justifyContent: 'center',
           alignItems: 'center',
           flexDirection: 'row',
-          gap: 1, // Space between the logo and text
+          gap: 1,
         }}
       >
-        <Image src="/ameenLogo.png" alt="Logo" sx={{ width: 36 }} />
+        <Image src={logo} alt="Logo" sx={{ width: 36 }} />
         <Typography variant="h2">AmeenBanks</Typography>
       </Box>
     </Fragment>

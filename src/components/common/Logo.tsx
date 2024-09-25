@@ -14,7 +14,7 @@ const Logo = () => {
           gap: 1, // Space between the logo and text
         }}
       >
-        <Image src="/src/assets/ameenLogo.png" alt="Logo" sx={{ width: 36 }} />
+        <Image src="/ameenLogo.png" alt="Logo" sx={{ width: 36 }} />
         <Typography variant="h2">AmeenBanks</Typography>
       </Box>
     </Fragment>

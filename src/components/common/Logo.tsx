@@ -1,12 +1,22 @@
-import { Typography } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 import Image from 'components/base/Image';
 import { Fragment } from 'react/jsx-runtime';
 
 const Logo = () => {
   return (
     <Fragment>
-      <Image src="/bankdash/bankdash.svg" alt="Logo" sx={{ width: 36 }} />
-      <Typography variant="h2">Bankdash.</Typography>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'row',
+          gap: 1, // Space between the logo and text
+        }}
+      >
+        <Image src="/src/assets/ameenLogo.png" alt="Logo" sx={{ width: 36 }} />
+        <Typography variant="h2">AmeenBanks</Typography>
+      </Box>
     </Fragment>
   );
 };

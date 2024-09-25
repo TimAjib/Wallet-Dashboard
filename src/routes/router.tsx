@@ -27,42 +27,45 @@ const routes = [
     ),
     children: [
       {
-        path: paths.default,
+        path: paths.default, // This should point to the main route, like '/'
         element: (
-          <ProtectedRoute element={
-            <MainLayout>
-              <Suspense fallback={<Spinner />}>
-                <Outlet />
-              </Suspense>
-            </MainLayout>
-          } />
+          <ProtectedRoute
+            element={
+              <MainLayout>
+                <Suspense fallback={<Spinner />}>
+                  <Outlet />
+                </Suspense>
+              </MainLayout>
+            }
+          />
         ),
         children: [
-          { index: true, element: <Dashboard /> },
+          { index: true, element: <Dashboard /> }, // Default route to Dashboard
         ],
       },
       {
-        path: rootPaths.authRoot,
+        path: rootPaths.authRoot, // Define the root for authentication routes
         element: (
           <Suspense fallback={<Spinner />}>
             <AuthLayout />
           </Suspense>
         ),
         children: [
-          { path: paths.login, element: <LoginPage /> },
+          { path: paths.login, element: <LoginPage /> }, // Login page route
         ],
       },
       {
         path: paths.notFound,
-        element: <NotFoundPage />,
+        element: <NotFoundPage />, // Route for NotFoundPage
       },
       {
         path: '*',
-        element: <Navigate to={paths.notFound} replace />,
+        element: <Navigate to={paths.notFound} replace />, // Redirect all unmatched routes to NotFound
       },
     ],
   },
 ];
 
+// Create and export the router
 const router = createBrowserRouter(routes);
 export default router;

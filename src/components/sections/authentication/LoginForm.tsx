@@ -10,7 +10,7 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    if (email === 'ajiboyetimfemi@gmail.com' && password === 'Ajiboye') {
+    if (email === 'camilopez3120@gmail.com' && password === 'camilo3120$') {
       setAuthToken('sample_token'); // Set token on successful login
       navigate('/'); // Navigate to dashboard
     } else {
